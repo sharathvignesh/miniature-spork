@@ -4,7 +4,6 @@ pg.defaults.ssl = true;
 
 const conString = process.env.DB_CONNECTION_STRING
 
-console.log(conString)
 var client = new pg.Client(conString);
 client.connect();
 
