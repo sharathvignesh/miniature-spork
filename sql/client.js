@@ -1,11 +1,35 @@
-var pg = require('pg');
-
-pg.defaults.ssl = true;
+const { Pool, Client } = require('pg')
 
 const conString = process.env.DB_CONNECTION_STRING
 
-var client = new pg.Client(conString);
-client.connect();
+const pool = new Pool({
+    connectionString: conString,
+    ssl: {
+        rejectUnauthorized: false,
+      },
+  })
+
+  pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    console.log('pool Connection successful');
+
+  })
+
+  const client = new Client({
+    connectionString: conString,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+  })
+
+  client.connect()
+  
+// var client = new pg.Client(conString);
+// client.connect();
 
 client.query('SELECT NOW()', (err, res) => {
     if (err) {
