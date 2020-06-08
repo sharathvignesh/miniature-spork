@@ -1,5 +1,9 @@
 ## CRUD APP - API
 
+### Root endpoint (deployed app)
+
+[https://nn-test.herokuapp.com/](https://nn-test.herokuapp.com/)
+
 ### API endpoints
 
 ---
